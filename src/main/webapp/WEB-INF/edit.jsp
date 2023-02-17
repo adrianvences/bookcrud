@@ -20,31 +20,18 @@
 </head>
 <body>
       
-      <div class="container align-items-center" style="width: 20rem; height: auto; ">
-        <h1>Add a Book</h1>
-        <div class="card bg-dark" style="width: 20rem; height: auto;">
-          <div class="card-body  align-items-center bg-dark">
-            <form action="/books" method="POST">
-              <div class="form-control align-items-center bg-primary">
-                title: <input type="text" name="title" id="" class="mt-2">
-                <br>
-                author: <input type="text" name="author" id="" class="mt-2">
-                <br>
-                pages: <input type="number" name="pages" id="" class="mt-2">
-                <br>
-                <input class="btn btn-dark mt-3" type="submit" value="add book">
-              </div>
-            </form>
-          </div>
-        </div>
+    
 
-        <h1>New and improved</h1>
+        <h1>Edit Book</h1>
 
         <div class="container bg-dark" style="width: 20rem; ">
           <div class="card bg-primary border-solid" >
             <div class="card-body">
-              <form:form action="/books" method="post" modelAttribute="book">
+              <form:form action="/books/${book.id}" method="post" modelAttribute="book">
                 <!-- model attribute has to match the one in the controller -->
+
+                <!-- have to specify its a put request this way -->
+                <input type="hidden" name="_method" value="put">
                 <div class="form-control mt-3">
                   <!-- form: exposes any of its child tags to data binding  -->
                   <!-- path has to corespond to class member variable -->

@@ -30,19 +30,24 @@ public class BookService { //service contains business logic
   }
 
   //update
-  public Book updateBook(Long id ,String title,String author,Integer pages){
-    Book book = this.findBook(id);
-    System.out.println(book);
-    book.setTitle(title);
-    book.setAuthor(author);
-    book.setPages(pages);
+
+  public void updateBook(Book book) {
     bookRepository.save(book);
-    return book;
   }
+
+  // public Book updateBook(Long id ,String title,String author,Integer pages){
+  //   Book book = this.findBook(id);
+  //   System.out.println(book);
+  //   book.setTitle(title);
+  //   book.setAuthor(author);
+  //   book.setPages(pages);
+  //   bookRepository.save(book);
+  //   return book;
+  // }
 
 
   //delete
-  public void deleteBookById(Long id){ // a long is a type of int that is bigger
-    bookRepository.deleteById(id);
+  public void deleteBook(Book book){ // a long is a type of int that is bigger
+    bookRepository.delete(book);
   }
 }
